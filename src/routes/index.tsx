@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const featured = PODCASTS[3];
+  const featured = PODCASTS[3]!;
   const latest = allEpisodes().slice(0, 5);
   const [q, setQ] = useState("");
   const navigate = useNavigate();
