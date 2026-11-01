@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ExploreRouteImport } from './routes/explore'
+import { Route as LibraryRouteImport } from './routes/library'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as StudioRouteImport } from './routes/studio'
+import { Route as PodcastIdRouteImport } from './routes/podcast.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExploreRoute = ExploreRouteImport.update({
+  id: '/explore',
+  path: '/explore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LibraryRoute = LibraryRouteImport.update({
+  id: '/library',
+  path: '/library',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudioRoute = StudioRouteImport.update({
+  id: '/studio',
+  path: '/studio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PodcastIdRoute = PodcastIdRouteImport.update({
+  id: '/podcast/$id',
+  path: '/podcast/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/explore': typeof ExploreRoute
+  '/library': typeof LibraryRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/studio': typeof StudioRoute
+  '/podcast/$id': typeof PodcastIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/explore': typeof ExploreRoute
+  '/library': typeof LibraryRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/studio': typeof StudioRoute
+  '/podcast/$id': typeof PodcastIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/explore': typeof ExploreRoute
+  '/library': typeof LibraryRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/studio': typeof StudioRoute
+  '/podcast/$id': typeof PodcastIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/explore'
+    | '/library'
+    | '/login'
+    | '/signup'
+    | '/studio'
+    | '/podcast/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/explore'
+    | '/library'
+    | '/login'
+    | '/signup'
+    | '/studio'
+    | '/podcast/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/explore'
+    | '/library'
+    | '/login'
+    | '/signup'
+    | '/studio'
+    | '/podcast/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ExploreRoute: typeof ExploreRoute
+  LibraryRoute: typeof LibraryRoute
+  LoginRoute: typeof LoginRoute
+  SignupRoute: typeof SignupRoute
+  StudioRoute: typeof StudioRoute
+  PodcastIdRoute: typeof PodcastIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/explore': {
+      id: '/explore'
+      path: '/explore'
+      fullPath: '/explore'
+      preLoaderRoute: typeof ExploreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/library': {
+      id: '/library'
+      path: '/library'
+      fullPath: '/library'
+      preLoaderRoute: typeof LibraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/studio': {
+      id: '/studio'
+      path: '/studio'
+      fullPath: '/studio'
+      preLoaderRoute: typeof StudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/podcast/$id': {
+      id: '/podcast/$id'
+      path: '/podcast/$id'
+      fullPath: '/podcast/$id'
+      preLoaderRoute: typeof PodcastIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ExploreRoute: ExploreRoute,
+  LibraryRoute: LibraryRoute,
+  LoginRoute: LoginRoute,
+  SignupRoute: SignupRoute,
+  StudioRoute: StudioRoute,
+  PodcastIdRoute: PodcastIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
