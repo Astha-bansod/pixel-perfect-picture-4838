@@ -41,10 +41,10 @@ function Studio() {
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     const er: Record<string, string> = {};
-    if (title.trim().length < 3) er.title = "Title needs at least 3 characters";
-    if (desc.trim().length < 20) er.desc = "Description needs at least 20 characters";
-    if (!category) er.category = "Choose a category";
-    if (!media) er.media = "Select an audio or video file";
+    if (title.trim().length < 3) er["title"] = "Title needs at least 3 characters";
+    if (desc.trim().length < 20) er["desc"] = "Description needs at least 20 characters";
+    if (!category) er["category"] = "Choose a category";
+    if (!media) er["media"] = "Select an audio or video file";
     setErrors(er);
     setDone(Object.keys(er).length === 0);
   };

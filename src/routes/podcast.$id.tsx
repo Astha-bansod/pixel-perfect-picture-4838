@@ -45,7 +45,7 @@ function PodcastPage() {
             <p className="mt-3 text-lg">by {p.creator}</p>
             <p className="mt-4 max-w-2xl text-muted-foreground">{p.description}</p>
             <div className="mt-6 flex flex-wrap items-center gap-4">
-              <PlayButton track={{ ...p.episodes[0], podcast: p }} size="lg" />
+              <PlayButton track={{ ...p.episodes[0]!, podcast: p }} size="lg" />
               <SaveButton id={p.id} />
               <span className="flex items-center gap-1 text-sm text-muted-foreground"><Star className="h-4 w-4 fill-primary-glow text-primary-glow" /> {p.rating} · {p.listeners} listeners</span>
             </div>
